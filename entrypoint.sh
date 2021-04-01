@@ -12,7 +12,7 @@ aws --profile default configure set aws_secret_access_key "$AWS_SECRET"
 # Setup a cron schedule
 echo "SHELL=/bin/bash
 BASH_ENV=/container.env
-* * * * * /run.sh >> /var/log/cron.log 2>&1
+$CRON_EXPRESSION /run.sh >> /var/log/cron.log 2>&1
 # This extra line makes it a valid cron" > scheduler.txt
 
 crontab scheduler.txt
